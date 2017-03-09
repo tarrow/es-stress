@@ -10,3 +10,5 @@ var makeQuery = function () {
 	else makeQuery()
     })
 }
+
+makeQuery()
