@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/tarrow/es-stress/issues"
   },
-  "homepage": "https://github.com/tarrow/es-stress#readme"
+  "homepage": "https://github.com/tarrow/es-stress#readme",
+  "dependencies": {
+    "agentkeepalive": "^3.1.0",
+    "elasticsearch": "^12.1.3"
+  }
 }
