@@ -8,5 +8,5 @@ var makeQuery = function () {
     client.ping({}, function (err) {
 	if (err) throw err
 	else makeQuery()
-	}
+    })
 }
