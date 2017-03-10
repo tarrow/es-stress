@@ -2,7 +2,7 @@ var elasticsearch = require('elasticsearch')
 var AgentKeepAlive = require('agentkeepalive')
 
 var client = new elasticsearch.Client({
-    host: 'localhost:9200'
+    host: 'localhost:80'
     maxSockets: 20,
     maxRetries: 50,
     createNodeAgent: function (connection, config) {
@@ -11,7 +11,23 @@ var client = new elasticsearch.Client({
 })
 
 var makeQuery = function () {
-    client.ping({}, function (err) {
+    client.search({
+    index: wikifactmine-papers,
+    body: {
+      _source: false,
+      fields: ['cprojectID'],
+      query: {
+        match_phrase: {
+          fulltext: 'Eesti Teaduste Akadeemia'
+        }
+      },
+      highlight: {
+        encoder: 'html',
+        fields: {
+          fulltext: { boundary_chars: '.,!?\t\n' }
+        }
+      }
+    }, function (err) {
 	if (err) throw err
 	else makeQuery()
     })
