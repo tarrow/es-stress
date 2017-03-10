@@ -2,7 +2,7 @@ var elasticsearch = require('elasticsearch')
 var AgentKeepAlive = require('agentkeepalive')
 
 var client = new elasticsearch.Client({
-    host: 'localhost:80'
+    host: 'localhost:80',
     maxSockets: 20,
     maxRetries: 50,
     createNodeAgent: function (connection, config) {
