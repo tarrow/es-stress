@@ -27,6 +27,7 @@ var makeQuery = function () {
           fulltext: { boundary_chars: '.,!?\t\n' }
         }
       }
+    }
     }, function (err) {
 	if (err) throw err
 	else makeQuery()
