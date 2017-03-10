@@ -12,7 +12,7 @@ var client = new elasticsearch.Client({
 
 var makeQuery = function () {
     client.search({
-    index: wikifactmine-papers,
+    index: 'wikifactmine-papers',
     body: {
       _source: false,
       fields: ['cprojectID'],
