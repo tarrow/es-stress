@@ -1,8 +1,17 @@
 var elasticsearch = require('elasticsearch')
+var url = require('url')
 var AgentKeepAlive = require('agentkeepalive')
 
+var host = 'http://localhost:80'
+var user = 'user'
+var pass = 'pass'
+
+var urlObj = url.parse(host)
+urlObj.auth = user+':'+pass
+
+var hoststring = url.format(urlObj)
 var client = new elasticsearch.Client({
-    host: 'localhost:80',
+    host: hoststring,
     maxSockets: 20,
     maxRetries: 50,
     createNodeAgent: function (connection, config) {
